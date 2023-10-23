@@ -56,6 +56,10 @@
     gap: 20px;
 }
 
+.gap-5 {
+    gap: 5px;
+}
+
 .gap-10 {
     gap: 10px;
 }
@@ -293,6 +297,10 @@
     .txt-c-mobile {
         text-align: center;
     }
+}
+
+.fs-12 {
+    font-size: 12px;
 }
 
 .fs-13 {

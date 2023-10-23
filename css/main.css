@@ -33,6 +33,11 @@ a {
     text-decoration: none;
 }
 
+textarea {
+    resize: none;
+    min-height: 160px;
+}
+
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -52,6 +57,12 @@ a {
 .page {
     background-color: #F1F5F9;
     min-height: 100vh;
+}
+
+@media (max-width: 767px) {
+    .page .content main > section {
+        margin: 10px;
+    }
 }
 
 .page main .main-title {
@@ -75,6 +86,48 @@ a {
 .page main .main-title::after {
     background-color: black;
     width: 40px;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-switch {
+    position: relative;
+    background-color: #ccc;
+    width: 78px;
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-switch::before {
+    font-family: var(--fa-style-family-classic);
+    content: "\f00d";
+    position: absolute;
+    font-weight: 900;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 50%;
+    left: 4px;
+    top: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.toggle-checkbox:checked+.toggle-switch {
+    background-color: var(--blue-color);
+}
+
+.toggle-checkbox:checked + .toggle-switch::before {
+    content: "\f00c";
+    left: 50px;
+    color: var(--blue-color);
 }
 /* start Sidebar */
 .page aside {
@@ -199,7 +252,7 @@ a {
 }
 
 .page .content header .search input[type=search]:focus {
-    width: 180px;
+    width: 175px;
 }
 
 .page .content header .search input[type=search]::placeholder {
@@ -228,17 +281,13 @@ a {
 }
 
 /* Start Dashboard */
-/*  ===> Start Welcome */
-@media (max-width: 767px) {
-    .page .content main .wrapper {
-        margin: 10px;
-    }
-}
+/* wrapper */
 
 .wrapper > article {
     border-bottom: 2px solid #aaa;
 }
 
+/* Start Welcome */
 .page .content main .wrapper .welcome {
     overflow: hidden;
 }
@@ -295,12 +344,7 @@ a {
     }
 }
 
-/*  ===> Start Quick Draft */
-
-.page .content main .wrapper .quick-draft textarea {
-    resize: none;
-    min-height: 180px;
-}
+/* Start Quick Draft */
 
 .page .content main .wrapper .quick-draft input[type=submit] {
     margin-left: auto;
@@ -312,7 +356,7 @@ a {
     background-color: var(--blue-alt-color);
 }
 
-/*  ===> Start Targets*/
+/* Start Targets */
 .targets .target .icon {
     width: 80px;
     height: 80px;
@@ -415,7 +459,15 @@ main .wrapper .tasks .task:nth-child(5) p {
     text-decoration: line-through;
 }
 
-/* Start  Top Searching Items*/
+main .wrapper .tasks .task i {
+    cursor: pointer;
+}
+
+main .wrapper .tasks .task:nth-child(5) i {
+    cursor: not-allowed;
+}
+
+/* Start Top Searching Items*/
 main .wrapper .uploads .upload:not(:last-child) {
     border-bottom: 1px solid #eee;
 }
@@ -470,6 +522,7 @@ main .wrapper .reminders .reminder > div{
 main .wrapper .reminders .reminder .circle {
     width: 15px;
     height: 15px;
+    flex-shrink: 0;
 }
 
 main .wrapper .reminders .reminder .blue {
@@ -527,7 +580,7 @@ main .wrapper .latest-post .post-stats>div:last-child:hover i {
 
 /* Start Social Media */
 main .wrapper .social-media .box {
-    padding-left: 70px;
+    padding-left: 60px;
 }
 
 main .wrapper .social-media .box i {
@@ -584,6 +637,224 @@ main .wrapper .social-media .box:nth-child(2n+1) i:hover {
 .social-media .linkedin i,
 .social-media .linkedin a {
     background-color: #0077b5;
+}
+
+/* Start Projects Table */
+@media (max-width: 767px) {
+    .page .content main .projects {
+        margin: 10px;
+    }
+}
+
+
+.page .content main .projects .responsive-table {
+    overflow-x: auto;
+}
+
+.page .content main .projects table {
+    min-width: 1000px;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+
+.page .content main .projects table td {
+    padding: 15px;
+}
+
+.page .content main .projects table thead td {
+    font-weight: bold;
+    background-color: #eee;
+}
+
+.page .content main .projects table tbody td {
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.page .content main .projects table tbody td:last-child {
+    border-right: 1px solid #eee;
+}
+
+.page .content main .projects table tbody tr:hover td {
+    background-color: #faf7f7;
+}
+
+.page .content main .projects table img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 2px;
+    background-color: white;
+}
+
+.page .content main .projects table picture:not(:first-child) img {
+    margin-left: -20px;
+}
+
+/* End Dashboard */
+/* Start Settings */
+
+.settings-page .site-control {
+    padding-right: 5px;
+}
+
+.settings-page .email:disabled {
+    background-color: #f0f4f8;
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.settings-page .email:disabled + a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.settings-page .sec-box:not(:last-child) {
+    border-bottom: 1px solid #eee
+}
+/* Social Info */
+
+.settings-page .social-info .box i {
+    width: 40px;
+    height: 40px;
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    transition: 300ms;
+}
+
+.settings-page .social-info .box input {
+    height: 40px;
+    background-color: #f6f6f6;
+    border: 1px solid #ddd;
+    border-radius: 0 6px 6px 0;
+    padding-left: 10px;
+}
+
+.settings-page .social-info .box:focus-within i {
+    color: black;
+}
+
+/* Start Widgets Control */
+.settings-page .widgets-control label input[type="checkbox"] {
+    display: none;
+}
+
+.settings-page .widgets-control label input[type="checkbox"] + span {
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer
+}
+
+.settings-page .widgets-control label input[type="checkbox"] + span::before,
+.settings-page .widgets-control label input[type="checkbox"] + span::after {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -9px;
+    border-radius: 4px;
+}
+
+.settings-page .widgets-control label input[type="checkbox"] + span::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--grey-color)
+}
+
+.settings-page .widgets-control label input[type="checkbox"] + span:hover::before {
+    border-color: var(--blue-alt-color)
+}
+
+
+.settings-page .widgets-control label input[type="checkbox"] + span::after {
+    font-family: var(--fa-style-family-classic);
+    content: "\f00c";
+    font-weight: 900;
+    background-color: var(--blue-color);
+    color: white;
+    font-size: 13px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0) rotate(360deg);
+    transition: 300ms;
+}
+
+.settings-page .widgets-control label input[type="checkbox"]:checked + span::after {
+    transform: scale(1)
+}
+
+/* Start Backup */
+.settings-page .backup-manager input[type="radio"] {
+    display: none;
+}
+
+.settings-page .backup-manager label input[type="radio"] + span {
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer
+}
+
+.settings-page .backup-manager label input[type="radio"] + span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--grey-color);
+    border-radius: 50%;
+}
+
+.settings-page .backup-manager label input[type="radio"] + span::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--blue-color);
+    border-radius: 50%;
+    transition: 300ms;
+    transform: scale(0);
+}
+
+.settings-page .backup-manager label input[type="radio"]:checked + span::before {
+    border-color: var(--blue-color);
+}
+
+.settings-page .backup-manager label input[type="radio"]:checked + span::after {
+    transform: scale(1);
+}
+
+.backup-manager .servers {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .backup-manager .servers {
+        flex-wrap: wrap;
+    }
+}
+
+.backup-manager .servers .server {
+    border: 2px solid #eee;
+    position: relative;
+}
+
+.backup-manager .servers .server label {
+    cursor: pointer;
+}
+
+.backup-manager .servers input[type="radio"]:checked + .server {
+    border-color: var(--blue-color);
+    color: var(--blue-color);
 }
 
 /* Start Animation */
