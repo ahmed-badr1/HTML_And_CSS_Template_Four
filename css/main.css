@@ -856,6 +856,221 @@ main .wrapper .social-media .box:nth-child(2n+1) i:hover {
     border-color: var(--blue-color);
     color: var(--blue-color);
 }
+/* Start Profile Page */
+/* Start Overview */
+@media (max-width: 767px) {
+    .profile-page .overview {
+        flex-direction: column;
+    }
+}
+
+.profile-page .avatar {
+    min-width: 220px;
+}
+
+@media (min-width: 768px) {
+    .profile-page .avatar {
+        border-right: 1px solid #eee;
+    }
+}
+
+.profile-page .overview .avatar img {
+    width: 120px;
+    height: 120px;
+}
+
+.profile-page .overview .avatar .level {
+    height: 6px;
+    overflow: hidden;
+}
+
+.profile-page .overview .avatar .level span {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.profile-page .overview .info-box .box {
+    flex-wrap: wrap;
+    transition: 300ms;
+}
+
+.profile-page .overview .info-box .box:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 767px) {
+    .profile-page .overview .info-box .box {
+        flex-direction: column;
+    }
+}
+
+.profile-page .overview .info-box .box:hover {
+    background-color: #f9f9f9;
+}
+
+.profile-page .overview .info-box .box > div {
+    min-width: 220px;
+}
+
+.profile-page .info-box h4 {
+    font-weight: normal;
+}
+
+.profile-page .info-box .toggle-switch {
+    height: 20px
+}
+
+@media (max-width: 767px) {
+    .profile-page .info-box .toggle-switch {
+        margin: auto;
+    }
+}
+
+.profile-page .info-box .toggle-switch::before {
+    width: 12px;
+    height: 12px;
+    font-size: 8px
+}
+
+.profile-page .info-box .toggle-checkbox:checked + .toggle-switch::before {
+    left: 62px
+}
+
+/* Start Other Data */
+@media (max-width: 767px) {
+    .profile-page .other-data {
+        flex-direction: column;
+    }
+}
+
+/* Start Skills */
+.profile-page .other-data .skills ul li {
+    padding: 15px 0;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+    .profile-page .other-data .skills ul li {
+        justify-content: center;
+    }
+}
+
+.profile-page .other-data .skills ul li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.profile-page .other-data .skills ul li span {
+    display: inline-flex;
+    padding: 4px 10px;
+    background-color: #eee;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Start Activities */
+.profile-page .other-data .activities {
+    flex: 2;
+}
+
+.profile-page .other-data .activities .activity:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 767px) {
+    .profile-page .other-data .activities .activity {
+        flex-direction: column;
+        gap: 15px
+    }
+}
+
+.profile-page .other-data .activities img {
+    width: 64px;
+    height: 64px;
+}
+
+@media (min-width: 768px) {
+    .profile-page .other-data .activities .activity .date {
+        text-align: right;
+    }
+}
+
+/* Start Projects Page */
+.projects-page .project .date {
+    top: 2px;
+    right: 10px;
+}
+
+.projects-page .project h4 {
+    font-weight: normal;
+}
+
+.projects-page .project .team {
+    min-height: 80px;
+}
+
+.projects-page .project .team a {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.projects-page .project .team a:nth-child(2) {
+    left: 25px;
+}
+
+.projects-page .project .team a:nth-child(3) {
+    left: 50px;
+}
+
+.projects-page .project .team a:nth-child(4) {
+    left: 75px;
+}
+
+.projects-page .project .team a:nth-child(5) {
+    left: 100px;
+}
+
+.projects-page .project .team a:hover {
+    z-index: 100;
+}
+.projects-page .project .team img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.projects-page .project .do {
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 767px) {
+    .projects-page .project .do {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .projects-page .project .info {
+        flex-direction: column;
+    }
+}
+
+.projects-page .project .info .progress {
+    height: 8px;
+    width: 240px
+}
+
+.projects-page .project .info .progress span {
+    left: 0;
+    top: 0;
+}
 
 /* Start Animation */
 @keyframes change-color {
