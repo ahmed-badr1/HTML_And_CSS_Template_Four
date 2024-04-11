@@ -1,11 +1,13 @@
+@use "sass/abstracts/index" as *;
+
 :root {
-  --blue-color: #0075ff;
-  --blue-alt-color: #0d69d5;
-  --orange-color: #f59e0b;
-  --green-color: #22c55e;
-  --red-color: #f44336;
-  --grey-color: #888;
-  --main-transition: 300ms;
+  --blue-color: #{$blue-color};
+  --blue-alt-color: #{$blue-alt-color};
+  --orange-color: #{$orange-color};
+  --green-color: #{$green-color};
+  --red-color: #{$red-color};
+  --grey-color: #{$grey-color};
+  --main-transition: #{$main-transition};
 }
 
 /* Start display Properties*/
@@ -75,25 +77,30 @@
 
 @media (max-width: 767px) {
   .d-block-mobile {
-    display: block;
+      display: block;
   }
+
   .d-hide-mobile {
-    display: none;
+      display: none;
   }
 }
+
 @media (max-width: 767px) {
   .d-grid-min-col-200-mobile {
-    display: grid;
-    grid-template-columns: minmax(200px, 1fr);
-    gap: 10px;
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr);
+  gap: 10px;
   }
 }
+
 @media (max-width: 767px) {
   .f-grow-mobile {
-    flex: 1;
+      flex: 1;
   }
 }
+
 /* Start Padding + Margin */
+
 .p-5 {
   padding: 5px;
 }
@@ -152,18 +159,14 @@
 
 .header-padding {
   padding: 15px 5px;
-}
-@media (min-width: 576px) {
-  .header-padding {
+  @include breakpoints(small) {
     padding: 15px;
   }
 }
 
 .section-padding {
   padding: 20px 5px;
-}
-@media (min-width: 576px) {
-  .section-padding {
+  @include breakpoints(small) {
     padding: 20px;
   }
 }
@@ -247,8 +250,8 @@
 .ml-15 {
   margin-left: 15px;
 }
-
 /* Start Color */
+
 .c-black {
   color: black;
 }
@@ -317,9 +320,10 @@
 
 @media (max-width: 767px) {
   .txt-c-mobile {
-    text-align: center;
+      text-align: center;
   }
 }
+
 .fs-12 {
   font-size: 12px;
 }
@@ -379,7 +383,6 @@
 }
 
 .w-fit {
-  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -392,12 +395,11 @@
 }
 
 /* Start Button */
+
 .btn-shape {
   padding: 4px;
-  border-radius: 6px;
-}
-@media (min-width: 576px) {
-  .btn-shape {
+  @include breakpoints(small) {
     padding: 4px 10px;
   }
+  border-radius: 6px;
 }

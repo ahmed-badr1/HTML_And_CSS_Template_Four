@@ -1,0 +1,59 @@
+@use "../abstracts/index" as *;
+
+$_files-color: ("blue": #0075ff, "orange": #f59e0b, "green": #22c55e, "red": #f44336);
+
+/* Start Files Page */
+.files-page {
+  flex-direction: column;
+  align-items: normal;
+  @include breakpoints(medium) {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+  .files-stats {
+    min-width: 200px;
+    @include breakpoints(medium) {
+      min-width: 240px;
+    }
+    i:not(:last-child) {
+      width: 40px;
+      height: 40px;
+    }
+    @each $color, $value in $_files-color {
+      .#{$color} {
+        background-color: rgba($value, 0.2);
+      }
+    }
+    .upload {
+      margin: 15px auto 0;
+      padding: 10px 15px;
+      transition: 300ms;
+      &:hover {
+        background-color: var(--blue-alt-color);
+        i {
+          animation: go-up 0.8s infinite;
+        }
+      }
+    }
+  }
+  .files-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    @include breakpoints(medium) {
+      gap: 10px
+    }
+    img {
+      width: 64px;
+      height: 64px;
+      transition: 300ms;
+      &:hover {
+        transform: rotate(5deg);
+      }
+      .info {
+        border-top: 1px solid #eee;
+      }
+    }
+  }
+}

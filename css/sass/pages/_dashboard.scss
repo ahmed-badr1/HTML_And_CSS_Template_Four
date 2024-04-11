@@ -1,0 +1,309 @@
+@use "../abstracts/index" as *;
+
+$_targets-colors: ("blue": #0075ff, "orange": #f59e0b, "green": #22c55e);
+$_reminders-colors: ("blue": #0075ff, "orange": #f59e0b, "green": #22c55e, "red": #f44336);
+$_social-colors: ("twitter": #1da1f2, "youtube": #ff0000, "facebook": #1877f2, "linkedin": #0a66c2);
+
+/* Start Dashboard */
+.wrapper {
+  > article {
+    border-bottom: 2px solid #aaa;
+  }
+  .welcome { 
+    overflow: hidden;
+    picture {
+      img {
+        &[alt=welcome] {
+          width: 200px;
+          margin-bottom: -10px;
+        }
+        &[alt=avatar] {
+          width: 64px;
+          height: 64px;
+          border: 2px solid white;
+          border-radius: 50%;
+          padding: 2px;
+          box-shadow: 0 0 5px #ddd;
+          margin-left: 20px;
+          margin-top: -32px;
+        }
+      }
+    }
+    .body {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      > div {
+        flex: 1;
+      }
+    }
+    .visit {
+      margin-left: auto;
+      transition: 0.3s;
+      &:hover {
+        background-color: var(--blue-alt-color);
+      }
+    }
+  }
+  .quick-draft {
+    input[type=submit] {
+      margin-left: auto;
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--blue-alt-color);
+      }
+    }
+  }
+
+  .target {
+    .icon {
+      width: 55px;
+      height: 55px;
+    }
+    .details {
+      flex: 1;
+      .progress {
+        height: 4px;
+        > span {
+          left: 0;
+          top: 0;
+          height: 100%;
+          span {
+            bottom: 16px;
+            right: -16px;
+            padding: 2px 5px;
+            &::after {
+              content: "";
+              position: absolute;
+              border: 5px solid transparent;
+              bottom: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+    }
+    @each $name, $color in $_targets-colors {
+      &.#{$name} {
+        .progress,
+        .icon {
+          background-color: rgba($color, 0.2);
+        }
+      }
+    }
+    @each $name, $color in $_targets-colors {
+      &.#{$name} .details .progress > span span::after {
+        border-top-color: $color;
+      }
+    }
+  }
+  .tickets {
+    .box {
+      width: 100%;
+      @include breakpoints(medium) {
+        width: calc(50% - 10px);
+      }
+    }
+  }
+  .new {
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 0;
+      .btn-shape {
+        margin-top: 15px;
+      }
+    }
+  }
+  .task {
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    &:nth-child(5) {
+      opacity: 0.3;
+      h3,
+      p {
+        text-decoration: line-through;
+      }
+      i {
+        cursor: not-allowed;
+      }
+    }
+    i {
+      cursor: pointer;
+    }
+  }
+  .upload {
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    img {
+      width: 50px;
+    }
+  }
+  .last-project {
+    .items {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: calc(100% - 10px);
+        background-color: var(--blue-color);
+        left: 12px;
+        transform: translateX(-50%)
+      }
+      li {
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+          border-radius: 50%;
+          background-color: white;
+          border: 2px solid white;
+          outline: 2px solid var(--blue-color);
+          z-index: 1;
+        }
+        &:not(:nth-child(1n+4))::before {
+          background-color: var(--blue-color);
+        }
+        &:nth-child(4)::before {
+          animation: change-color 800ms infinite alternate;
+        }
+      }
+    }
+    img {
+      width: 160px;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+    }
+  }
+  .reminder {
+    > div {
+      border-left: 2px solid transparent;
+    }
+    .circle {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+    @each $name, $color in $_reminders-colors {
+      & .#{$name} {
+        border-color: $color;
+      }
+    }
+  }
+  .latest-post {
+    .person img {
+      width: 48px;
+    }
+    .post-content {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      line-height: 1.8;
+      min-height: 140px;
+    }
+    .post-stats > div {
+      cursor: pointer;
+      i {
+        width: 35px;
+        height: 35px;
+      }
+      &:first-child:hover {
+        color: rgb(249, 24, 128);
+        i {
+          background-color: rgb(249, 24, 128, 0.1);
+        }
+      }
+      &:last-child:hover {
+        color: rgb(29, 155, 240);
+        i {
+          background-color: rgb(29, 155, 240, 0.1);
+        }
+      }
+    }
+  }
+  .social-media {
+    .box {
+      padding-left: 45px;
+      height: 40px;
+      i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        transition: 0.3s;
+      }
+      &:nth-child(2n) i:hover {
+        transform: rotate(5deg);
+      }
+      &:nth-child(2n+1) i:hover {
+        transform: rotate(-5deg);
+      }
+    }
+    @each $name, $color in $_social-colors {
+      & .#{$name} {
+        background-color: rgb($color, 0.2);
+        color: $color;
+        i,
+        a {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}
+
+/* Start Projects Table */
+.projects {
+  @media (max-width: 767px) {
+    margin: 10px;
+  }
+  .responsive-table {
+    overflow-x: auto;
+  }
+  table {
+    min-width: 1000px;
+    border-spacing: 0;
+    margin-bottom: 10px;
+    td {
+      padding: 15px;
+    }
+    thead {
+      td {
+        font-weight: bold;
+        background-color: #eee;
+      }
+    }
+    tbody {
+      td {
+        border-left: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        &:last-child {
+          border-right: 1px solid #eee;
+        }
+      }
+      tr:hover {
+        td {
+          background-color: #faf7f7;
+        }
+      }
+    }
+    picture {
+      &:not(:first-child) img {
+        margin-left: -20px;
+      }
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        padding: 2px;
+        background-color: white;
+      }
+    }
+  }
+}

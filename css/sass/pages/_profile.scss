@@ -1,0 +1,111 @@
+@use "../abstracts/index" as *;
+
+/* Start Profile Page */
+.profile-page {
+  .overview {
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+    .avatar {
+      @include breakpoints(small) {
+        min-width: 220px;
+      }
+      @include breakpoints(medium) {
+        border-right: 1px solid #eee;
+      }
+      img {
+        width: 120px;
+        height: 120px;
+      }
+      .level {
+        height: 6px;
+        overflow: hidden;
+        span {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+    .info-box {
+      .box {
+        flex-wrap: wrap;
+        transition: 300ms;
+        &:not(:last-child) {
+          border-bottom: 1px solid #eee;
+        }
+        @media (max-width: 767px) {
+          flex-direction: column;
+        }
+        &:hover {
+          background-color: #f9f9f9;
+        }
+      }
+      h4 {
+        font-weight: normal;
+      }
+      .toggle-switch {
+        height: 20px;
+        @media (max-width: 767px) {
+          margin: auto;
+        }
+        &::before {
+          width: 12px;
+          height: 12px;
+          font-size: 8px;
+        }
+      }
+      .toggle-checkbox:checked + .toggle-switch::before {
+        left: 49px;
+      }
+    }
+  }
+  .other-data {
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+    .skills {
+      ul li {
+        padding: 15px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        @include breakpoints(medium) {
+          justify-content: flex-start;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid #eee;
+        }
+        span {
+          display: inline-flex;
+          padding: 4px 10px;
+          background-color: #eee;
+          border-radius: 6px;
+          font-size: 14px;
+        }
+      }
+    }
+    .activities {
+      flex: 2;
+      .activity {
+        &:not(:last-child) {
+          border-bottom: 1px solid #eee;
+        }
+        @media (max-width: 767px) {
+          flex-direction: column;
+          gap: 15px
+        }
+      }
+      img {
+        width: 64px;
+        height: 64px;
+      }
+      @include breakpoints(medium) {
+        .date {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

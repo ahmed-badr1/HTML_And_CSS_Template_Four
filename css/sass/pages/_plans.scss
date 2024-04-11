@@ -1,0 +1,57 @@
+@use "../abstracts/index" as *;
+
+$_colors: "blue" "orange" "green";
+
+/* Start Plans Page */
+.plans-page {
+  .plan {
+    .top {
+      border: 3px solid white;
+      outline: 3px solid transparent;
+    }
+    @each $name in $_colors {
+      &.#{$name} {
+        .top {
+          outline-color: var(--#{$name}-color);
+        }
+      }
+    }
+    .price {
+      width: fit-content;
+      font-size: 40px;
+      margin: auto;
+      span {
+        font-size: 25px;
+        left: -20px;
+        top: 0;
+      }
+    }
+    ul li {
+      padding: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
+      span {
+        flex: 1;
+      }
+      .yes {
+        color: var(--green-color);
+      }
+      i {
+        &:not(.yes, .help) {
+          color: var(--red-color);
+        }
+        &:first-child {
+          font-size: 18px;
+        }
+      }
+      .help {
+        color: var(--gray-color);
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@use "../abstracts/index" as *;
+
+/* Start Variables */
+:root {
+  --blue-color: #{$blue-color};
+  --blue-alt-color: #{$blue-alt-color};
+  --orange-color: #{$orange-color};
+  --green-color: #{$green-color};
+  --red-color: #{$red-color};
+  --grey-color: #{$grey-color};
+  --main-transition: #{$main-transition};
+}
+
+/* Start Global Rules */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+  min-height: 160px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--blue-alt-color);
+}
+
+.page {
+  background-color: #F1F5F9;
+  min-height: 100vh;
+}
+
+.page .content {
+  overflow: hidden;
+}
+
+@include breakpoints(small) {
+  .page .content main > section {
+    margin: 10px;
+  }
+}

@@ -1,0 +1,54 @@
+@use "../abstracts/index" as *;
+
+/* Start Friends Page */
+.friends-page {
+  @include responsive-grid;
+  .friend {
+    .contact {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      i {
+        background-color: #eee;
+        padding: 10px;
+        border-radius: 50%;
+        color: #666;
+        font-size: 13px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover {
+          background-color: var(--blue-color);
+          color: white;
+        }
+      }
+    }
+    .icons {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      .vip {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        opacity: 0.2;
+      }
+    }
+    .date-info {
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 20px;
+      }
+      > span {
+        margin-right: auto;
+      }
+      > div {
+        margin-left: auto;
+      }
+    }
+  }
+}

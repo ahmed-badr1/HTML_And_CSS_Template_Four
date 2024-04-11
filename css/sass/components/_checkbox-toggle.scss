@@ -1,0 +1,42 @@
+@use "../abstracts/index" as *;
+
+/* Checkbox Toggle */
+
+
+.toggle-checkbox {
+  display: none;
+  + .toggle-switch {
+    position: relative;
+    background-color: #ccc;
+    width: 65px;
+    height: 32px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    &::before {
+      font-family: var(--fa-style-family-classic);
+      content: "\f00d";
+      position: absolute;
+      font-weight: 900;
+      width: 24px;
+      height: 24px;
+      background-color: white;
+      border-radius: 50%;
+      left: 4px;
+      top: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #aaa;
+      transition: 0.3s;
+    }
+  }
+  &:checked + .toggle-switch {
+    background-color: var(--blue-color);
+    &::before {
+      content: "\f00c";
+      left: 37px;
+      color: var(--blue-color);
+    }
+  }
+}

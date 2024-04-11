@@ -1,0 +1,36 @@
+@use "../abstracts/index" as *;
+
+/* Start Courses Page */
+.courses-page {
+  @include responsive-grid;
+  .course {
+    overflow: hidden;
+    .cover {
+      max-width: 100%;
+    }
+    .instructor {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      top: 20px;
+      left: 20px;
+      border: 2px solid white;
+    }
+    .text {
+      min-height: 182px;
+      flex-wrap: wrap;
+    }
+    .description {
+      line-height: 1.6;
+    }
+    .info {
+      border-top: 1px solid #eee;
+      .title {
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

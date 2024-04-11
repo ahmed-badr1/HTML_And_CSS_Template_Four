@@ -1,0 +1,59 @@
+@use "../abstracts/index" as *;
+
+/* Start Header*/
+
+header {
+  .search {
+    &::before {
+      font-family: var(--fa-style-family-classic);
+      content: "\f002";
+      position: absolute;
+      font-weight: 900;
+      color: var(--grey-color);
+      font-size: 14px;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    input[type=search] {
+      border: 1px solid #ccc;
+      width: 160px;
+      transition: width var(--main-transition);
+      &::placeholder {
+        color: var(--grey-color);
+        transition: opacity var(--main-transition);
+      }
+      &:focus {
+        width: 175px;
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .icons {
+    @media (max-width: 577px) {
+      margin-right: 4px;
+    }
+    .notification::before {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--red-color);
+      border-radius: 50%;
+      right: -4px;
+      top: -4px;
+    }
+    picture img {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      left: 3px;
+      top: 15px;
+      @include breakpoints(small) {
+        position: static;
+      }
+    }
+  }
+}
